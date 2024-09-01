@@ -22,7 +22,9 @@ class Auto {
         }else if (comando === 'D') {
             if (this.orientation === 'N') {
                 this.orientation = 'E';
-            } 
+            } else if (this.orientation === 'E') {
+                this.orientation = 'S';
+            }
         }
     }
 }
