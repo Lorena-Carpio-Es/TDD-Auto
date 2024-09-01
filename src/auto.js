@@ -18,6 +18,9 @@ class Auto {
             if(this.orientation === 'E'){
                 this.x += 1;
             }
+            if(this.orientation === 'O'){
+                this.x -= 1;
+            }
                 
         }else if (comando === 'D') {
             if (this.orientation === 'N') {
