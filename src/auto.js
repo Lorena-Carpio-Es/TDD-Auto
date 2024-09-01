@@ -15,7 +15,10 @@ class Auto {
             if (this.orientation === 'N') {
                 this.y += 1;
             }
-            
+            if(this.orientation === 'E'){
+                this.x += 1;
+            }
+                
         }
     }
 }
