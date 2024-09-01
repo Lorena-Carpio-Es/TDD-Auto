@@ -9,6 +9,15 @@ class Auto {
     getPosicion() {
         return `${this.x},${this.y} ${this.orientation}`;
     }
+
+    mover(comando) {
+        if (comando === 'A') {
+            if (this.orientation === 'N') {
+                this.y += 1;
+            }
+            
+        }
+    }
 }
 
 export default Auto;

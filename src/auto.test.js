@@ -10,4 +10,12 @@ describe('Auto Controlado', () => {
         });
     });
 
+    describe("Mover Auto", () =>{
+        it("Deberia mover al Norte", () =>{
+            const auto = new Auto(1, 2, 'N');
+            auto.mover('A');
+            expect(auto.getPosicion()).toEqual('1,3 N');
+        });
+    });
+
 });
