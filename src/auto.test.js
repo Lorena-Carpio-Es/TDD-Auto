@@ -29,6 +29,12 @@ describe('Auto Controlado', () => {
             expect(auto.getPosicion()).toEqual('0,2 O');
         });
 
+        it('deberia avanzar al sur cuando recibe el comando A', () =>{
+            const auto = new Auto(1, 2, 'S');
+            auto.mover('A');
+            expect(auto.getPosicion()).toEqual('1,1 S');
+        })
+
         it('debería girar a la derecha desde el norte a este', () => {
             const auto = new Auto(1, 2, 'N');
             auto.mover('D');
