@@ -27,6 +27,8 @@ class Auto {
                 this.orientation = 'E';
             } else if (this.orientation === 'E') {
                 this.orientation = 'S';
+            } else if (this.orientation === 'S') {
+                this.orientation = 'O';
             }
         }
     }

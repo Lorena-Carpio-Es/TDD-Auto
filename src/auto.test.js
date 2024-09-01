@@ -40,6 +40,12 @@ describe('Auto Controlado', () => {
             auto.mover('D');
             expect(auto.getPosicion()).toEqual('1,2 S');
         });
+
+        it('debería girar a la derecha desde el sur a oeste', () => {
+            const auto = new Auto(1, 2, 'S');
+            auto.mover('D');
+            expect(auto.getPosicion()).toEqual('1,2 O');
+        });
     });
 
 });
