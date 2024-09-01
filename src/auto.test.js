@@ -22,6 +22,12 @@ describe('Auto Controlado', () => {
             auto.mover('A');
             expect(auto.getPosicion()).toEqual('2,2 E');
         });
+
+        it('debería girar a la derecha desde el norte a este', () => {
+            const auto = new Auto(1, 2, 'N');
+            auto.mover('D');
+            expect(auto.getPosicion()).toEqual('1,2 E');
+        });
     });
 
 });

@@ -19,6 +19,10 @@ class Auto {
                 this.x += 1;
             }
                 
+        }else if (comando === 'D') {
+            if (this.orientation === 'N') {
+                this.orientation = 'E';
+            } 
         }
     }
 }
