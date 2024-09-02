@@ -14,6 +14,9 @@ class Auto {
         if (comando === 'A' && this.orientation === 'N') {
             this.y += 1;
         }
+        if (comando === 'I' && this.orientation === 'N') {
+            this.orientation = 'W';
+        }
     }
 }
 
