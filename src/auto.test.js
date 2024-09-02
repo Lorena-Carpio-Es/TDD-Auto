@@ -33,4 +33,9 @@ describe('Auto', () => {
         auto.mover('D');
         expect(auto.getPosicion()).toEqual('1,2 S');
     });
+    it('debería avanzar hacia adelante cuando la orientación es Sur', () => {
+        const auto = new Auto(1, 2, 'S');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('1,1 S');
+    });
 });
