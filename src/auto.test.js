@@ -48,4 +48,9 @@ describe('Auto', () => {
         auto.mover('D');
         expect(auto.getPosicion()).toEqual('1,2 W');
     });
+    it('debería avanzar hacia adelante cuando la orientación es Oeste', () => {
+        const auto = new Auto(2, 2, 'W');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('1,2 W');
+    });
 });
