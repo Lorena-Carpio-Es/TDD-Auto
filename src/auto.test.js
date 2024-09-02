@@ -43,4 +43,9 @@ describe('Auto', () => {
         auto.mover('I');
         expect(auto.getPosicion()).toEqual('1,2 E');
     });
+    it('debería girar a la derecha cuando la orientación es Sur', () => {
+        const auto = new Auto(1, 2, 'S');
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 W');
+    });
 });
