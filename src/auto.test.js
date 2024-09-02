@@ -1,57 +1,58 @@
 // auto.test.js
-import Auto from './auto.js';
+import Auto from './auto';
 
-describe('Auto Controlado', () => {
-    
-    describe('Mostrar la posicion del auto', () => {
-        it('deberia mostrar la posición inicial', () => {
-            const auto = new Auto(1, 2, 'N');
-            expect(auto.getPosicion()).toEqual('1,2 N');
-        });
+describe('Controlador de autitos', () => {
+    it('debería mover el auto hacia adelante en dirección norte', () => {
+        const auto = new Auto(1, 2, 'N');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('1,3 N');
     });
 
-    describe("Mover Auto", () =>{
-        it("Deberia mover al Norte", () =>{
-            const auto = new Auto(1, 2, 'N');
-            auto.mover('A');
-            expect(auto.getPosicion()).toEqual('1,3 N');
-        });
-
-        it('debería avanzar  el este cuando recibe el comando A', () => {
-            const auto = new Auto(1, 2, 'E');
-            auto.mover('A');
-            expect(auto.getPosicion()).toEqual('2,2 E');
-        });
-
-        it('debería avanzar  el oeste cuando recibe el comando A', () => {
-            const auto = new Auto(1, 2, 'O');
-            auto.mover('A');
-            expect(auto.getPosicion()).toEqual('0,2 O');
-        });
-
-        it('deberia avanzar al sur cuando recibe el comando A', () =>{
-            const auto = new Auto(1, 2, 'S');
-            auto.mover('A');
-            expect(auto.getPosicion()).toEqual('1,1 S');
-        })
-
-        it('debería girar a la derecha desde el norte a este', () => {
-            const auto = new Auto(1, 2, 'N');
-            auto.mover('D');
-            expect(auto.getPosicion()).toEqual('1,2 E');
-        });
-
-        it('debería girar a la derecha desde el este a sur', () => {
-            const auto = new Auto(1, 2, 'E');
-            auto.mover('D');
-            expect(auto.getPosicion()).toEqual('1,2 S');
-        });
-
-        it('debería girar a la derecha desde el sur a oeste', () => {
-            const auto = new Auto(1, 2, 'S');
-            auto.mover('D');
-            expect(auto.getPosicion()).toEqual('1,2 O');
-        });
+    it('debería mover el auto hacia adelante en dirección este', () => {
+        const auto = new Auto(1, 2, 'E');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('2,2 E');
     });
 
+    it('debería mover el auto hacia adelante en dirección sur', () => {
+        const auto = new Auto(1, 2, 'S');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('1,1 S');
+    });
+
+    it('debería mover el auto hacia adelante en dirección oeste', () => {
+        const auto = new Auto(1, 2, 'W');
+        auto.mover('A');
+        expect(auto.getPosicion()).toEqual('0,2 W');
+    });
+
+    it('debería girar a la derecha correctamente', () => {
+        const auto = new Auto(1, 2, 'N');
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 E');
+
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 S');
+
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 W');
+
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 N');
+    });
+
+    it('debería girar a la izquierda correctamente', () => {
+        const auto = new Auto(1, 2, 'N');
+        auto.mover('I');
+        expect(auto.getPosicion()).toEqual('1,2 W');
+
+        auto.mover('I');
+        expect(auto.getPosicion()).toEqual('1,2 S');
+
+        auto.mover('I');
+        expect(auto.getPosicion()).toEqual('1,2 E');
+
+        auto.mover('I');
+        expect(auto.getPosicion()).toEqual('1,2 N');
+    });
 });

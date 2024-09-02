@@ -11,32 +11,20 @@ class Auto {
     }
 
     mover(comando) {
+        const movimientos = {
+            'N': { A: [0, 1], I: 'W', D: 'E' },
+            'E': { A: [1, 0], I: 'N', D: 'S' },
+            'S': { A: [0, -1], I: 'E', D: 'W' },
+            'W': { A: [-1, 0], I: 'S', D: 'N' }
+        };
+
         if (comando === 'A') {
-            if (this.orientation === 'N') {
-                this.y += 1;
-            }
-            if(this.orientation === 'E'){
-                this.x += 1;
-            }
-            if(this.orientation === 'O'){
-                this.x -= 1;
-            }
-            if(this.orientation === 'S'){
-                this.y -= 1;
-            }  
-        }else if (comando === 'D') {
-            if (this.orientation === 'N') {
-                this.orientation = 'E';
-            } else if (this.orientation === 'E') {
-                this.orientation = 'S';
-            } else if (this.orientation === 'S') {
-                this.orientation = 'O';
-            }
+            this.x += movimientos[this.orientation].A[0];
+            this.y += movimientos[this.orientation].A[1];
+        } else {
+            this.orientation = movimientos[this.orientation][comando];
         }
     }
 }
 
 export default Auto;
-
-
-  
