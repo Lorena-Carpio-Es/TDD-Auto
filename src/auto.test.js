@@ -28,4 +28,9 @@ describe('Auto', () => {
         auto.mover('I');
         expect(auto.getPosicion()).toEqual('1,2 N');
     });
+    it('debería girar a la derecha cuando la orientación es Este', () => {
+        const auto = new Auto(1, 2, 'E');
+        auto.mover('D');
+        expect(auto.getPosicion()).toEqual('1,2 S');
+    });
 });
