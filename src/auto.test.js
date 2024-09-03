@@ -63,4 +63,10 @@ describe('Auto', () => {
         auto.mover('D');
         expect(auto.getPosicion()).toEqual('1,2 N');
     });
+
+    it('debería manejar una secuencia de comandos simple', () => {
+        const auto = new Auto(1, 2, 'N');
+        auto.ejecutarComandos('AA');
+        expect(auto.getPosicion()).toEqual('1,4 N');
+    });
 });

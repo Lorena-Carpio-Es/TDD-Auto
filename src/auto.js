@@ -25,6 +25,12 @@ class Auto {
             this.orientation = movimientos[this.orientation][comando];
         }
     }
+
+    ejecutarComandos(comandos) {
+        for (let comando of comandos) {
+            this.mover(comando);
+        }
+    }
 }
 
 export default Auto;
