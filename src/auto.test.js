@@ -75,4 +75,10 @@ describe('Auto', () => {
         auto.ejecutarComandos('AADDA');
         expect(auto.getPosicion()).toEqual('1,3 S');
     });
+
+    it('debería manejar una secuencia de comandos de  4 comandos', () => {
+        const auto = new Auto(1, 2, 'S');
+        auto.ejecutarComandos('AA');
+        expect(auto.getPosicion()).toEqual('1,0 S');
+    });
 });
