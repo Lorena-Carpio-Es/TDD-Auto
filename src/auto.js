@@ -1,9 +1,11 @@
 // auto.js
 class Auto {
-    constructor(x, y, orientation) {
+    constructor(x, y, orientation, maxX, maxY) {
         this.x = x;
         this.y = y;
         this.orientation = orientation;
+        this.maxX = maxX;
+        this.maxY = maxY;
     }
 
     getPosicion() {
@@ -19,8 +21,14 @@ class Auto {
         };
 
         if (comando === 'A') {
-            this.x += movimientos[this.orientation].A[0];
-            this.y += movimientos[this.orientation].A[1];
+            const nuevoX = this.x + movimientos[this.orientation].A[0];
+            const nuevoY = this.y + movimientos[this.orientation].A[1];
+    
+            // Verificar si el movimiento está dentro de los límites del grid
+            if (nuevoX >= 0 && nuevoY >= 0 && nuevoX <= this.maxX && nuevoY <= this.maxY) {
+                this.x = nuevoX;
+                this.y = nuevoY;
+            }
         } else {
             this.orientation = movimientos[this.orientation][comando];
         }
