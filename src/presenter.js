@@ -1,15 +1,29 @@
+import Auto from './auto.js';
 
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const inputComandos = document.querySelector("#inputComandos");
+const btnEjecutar = document.querySelector("#btnEjecutar");
+const resultadoDiv = document.querySelector("#resultado");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+btnEjecutar.addEventListener("click", () => {
+   
+    const comandos = inputComandos.value.trim();
+    if (comandos) {
+        
+        const [dimensiones, posicion, comandosStr] = comandos.split('/');
+        const [maxX, maxY] = dimensiones.split(',').map(Number);
+        const [x, y, orientacion] = [parseInt(posicion[0]), parseInt(posicion[2]), posicion[3]];
+        
+        
+        const auto = new Auto(x, y, orientacion, maxX, maxY);
+        
+      
+        auto.ejecutarComandos(comandosStr);
+        
+      
+        resultadoDiv.innerHTML = `Posición Final: ${auto.getPosicion()}`;
+    } else {
+        resultadoDiv.innerHTML = "Por favor, ingrese comandos válidos.";
+    }
 });
