@@ -11,7 +11,7 @@ describe('Auto', () => {
     it('debería girar a la izquierda cuando la orientación es Norte', () => {
         const auto = new Auto(1, 2, 'N',5,5);
         auto.mover('I');
-        expect(auto.getPosicion()).toEqual('1,2 W');
+        expect(auto.getPosicion()).toEqual('1,2 O');
     });
     it('debería girar a la derecha cuando la orientación es Norte', () => {
         const auto = new Auto(1, 2, 'N',5,5);
@@ -46,20 +46,20 @@ describe('Auto', () => {
     it('debería girar a la derecha cuando la orientación es Sur', () => {
         const auto = new Auto(1, 2, 'S',5, 5);
         auto.mover('D');
-        expect(auto.getPosicion()).toEqual('1,2 W');
+        expect(auto.getPosicion()).toEqual('1,2 O');
     });
     it('debería avanzar hacia adelante cuando la orientación es Oeste', () => {
-        const auto = new Auto(2, 2, 'W',5 ,5);
+        const auto = new Auto(2, 2, 'O',5 ,5);
         auto.mover('A');
-        expect(auto.getPosicion()).toEqual('1,2 W');
+        expect(auto.getPosicion()).toEqual('1,2 O');
     });
     it('debería girar a la izquierda cuando la orientación es Oeste', () => {
-        const auto = new Auto(1, 2, 'W',5 ,5);
+        const auto = new Auto(1, 2, 'O',5 ,5);
         auto.mover('I');
         expect(auto.getPosicion()).toEqual('1,2 S');
     });
     it('debería girar a la derecha cuando la orientación es Oeste', () => {
-        const auto = new Auto(1, 2, 'W',5 ,5);
+        const auto = new Auto(1, 2, 'O',5 ,5);
         auto.mover('D');
         expect(auto.getPosicion()).toEqual('1,2 N');
     });

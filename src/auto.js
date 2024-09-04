@@ -14,10 +14,10 @@ class Auto {
 
     mover(comando) {
         const movimientos = {
-            'N': { A: [0, 1], I: 'W', D: 'E' },
+            'N': { A: [0, 1], I: 'O', D: 'E' },
             'E': { A: [1, 0], I: 'N', D: 'S' },
-            'S': { A: [0, -1], I: 'E', D: 'W' },
-            'W': { A: [-1, 0], I: 'S', D: 'N' }
+            'S': { A: [0, -1], I: 'E', D: 'O' },
+            'O': { A: [-1, 0], I: 'S', D: 'N' }
         };
 
         if (comando === 'A') {
